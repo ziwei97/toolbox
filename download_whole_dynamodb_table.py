@@ -75,4 +75,4 @@ def update_db_file(table_name: str, debug: bool = True) -> list:
 
 df = get_table('BURN_Master_ImageCollections')
 df_final = pd.DataFrame(df)
-df_final.to_csv('/Users/ziweishi/Documents/database/BURN_Master_ImageCollections.csv')
+df_final.to_excel('/Users/ziweishi/Documents/database/BURN_Master_ImageCollections.xlsx')

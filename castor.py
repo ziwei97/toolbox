@@ -1,28 +1,30 @@
 import pandas as pd
+#
+df = pd.read_excel("/Users/ziweishi/Desktop/Truthing_List.xlsx",sheet_name="total")
 
-df = pd.read_excel("/Users/ziweishi/Desktop/Training_Study_excel_export_20221122021018.xlsx")
-list = pd.read_excel("/Users/ziweishi/Desktop/ImageData_DecemberTruthing.xlsx",sheet_name="December-Truth-Data")
-
-sub_list = list["SubjectID"].to_list()
-df1 = df[df["D_sub_num"].isin(sub_list)]
-df1.to_excel("/Users/ziweishi/Desktop/new.xlsx")
-
-
-a = df1[df1["D_sub_num"]=="101-001"]
-
-for i in sub_list[1:]:
-    try:
-        df2=df1[df1["D_sub_num"]==i]
-        new = [a,df2]
-        a = pd.concat(new)
-    except:
-        print(i)
-        df2 = df1[df1["D_sub_num"] == "108-004"]
-        new = [a, df2]
-        a = pd.concat(new)
+id = df["Subject"].to_list()
+# list = pd.read_excel("/Users/ziweishi/Desktop/ImageData_DecemberTruthing.xlsx",sheet_name="December-Truth-Data")
+#
+# sub_list = list["SubjectID"].to_list()
+# df1 = df[df["D_sub_num"].isin(sub_list)]
+# df1.to_excel("/Users/ziweishi/Desktop/new.xlsx")
 
 
-a.to_excel("/Users/ziweishi/Desktop/try.xlsx")
+# a = df1[df1["D_sub_num"]=="101-001"]
+#
+# for i in sub_list[1:]:
+#     try:
+#         df2=df1[df1["D_sub_num"]==i]
+#         new = [a,df2]
+#         a = pd.concat(new)
+#     except:
+#         print(i)
+#         df2 = df1[df1["D_sub_num"] == "108-004"]
+#         new = [a, df2]
+#         a = pd.concat(new)
+#
+#
+# a.to_excel("/Users/ziweishi/Desktop/try.xlsx")
 
 
 
@@ -56,6 +58,10 @@ def remove_duplicate(list):
         a+=1
     return final
 
+a = remove_duplicate(id)
+print(len(a))
+# for i in range(len(a)):
+#     print(a[i])
 
 # list1 = [2,3,4,1,2,3,5]
 # print(remove_duplicate(list1))
@@ -72,4 +78,19 @@ def remove_duplicate(list):
 # for i in ch1:
 #     if i not in pei2:
 #         print(i)
+
+#
+# excel_file_path = '/Users/ziweishi/Desktop/Training_Study_excel_export_20221122021018.xlsx'
+# df = pd.read_excel(excel_file_path, sheet_name=1)
+#
+# columns = ['Accession#', 'Location#', 'SubjectID', 'StudyID', 'BiopsyID', 'Location', 'R.L', 'Site', 'Other',
+# 'PERCENT >50%', 'Viable Papillary Dermis', 'Reticular Dermis', 'DEGENERATION OF RETICULAR DERMIS COLLAGEN',
+# 'Total # of Necrotic & Viable', 'Total # of Necrotic Only', 'DEGREE OF THROMBOSIS']
+
+
+
+# new_df = pd.DataFrame(df.values, columns = columns)
+
+# new_df.to_csv('/Users/ziweishi/Desktop/use.csv')
+
 
